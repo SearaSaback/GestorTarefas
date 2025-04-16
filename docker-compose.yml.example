@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      SA_PASSWORD: ""
+      ACCEPT_EULA: ""
+    ports:
+      - "1433:1433"
+    networks:
+      - backend
+
+  webapi:
+    build: .
+    container_name: taskmanager-api
+    depends_on:
+      - sqlserver
+    ports:
+      - "5000:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge

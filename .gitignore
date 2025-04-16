@@ -1,0 +1,4 @@
+.prettierrc
+.yml
+bin/
+obj/
