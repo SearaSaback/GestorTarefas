@@ -1,4 +1,4 @@
-.prettierrc
-.yml
+*.prettierrc
+*.yml
 bin/
 obj/

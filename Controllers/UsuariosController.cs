@@ -17,17 +17,17 @@ namespace GestorTarefas.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Usuario>>> Get()
+        public async Task<ActionResult<IEnumerable<Usuario>>> GetAll()
         {
             return await _context.Usuarios.ToListAsync();
         }
 
         [HttpPost]
-        public async Task<ActionResult<Usuario>> Post(Usuario usuario)
+        public async Task<ActionResult<Usuario>> Create(Usuario usuario)
         {
             _context.Usuarios.Add(usuario);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(Get), new { id = usuario.Id }, usuario);
+            return CreatedAtAction(nameof(GetAll), new { id = usuario.Id }, usuario);
         }
     }
 }
