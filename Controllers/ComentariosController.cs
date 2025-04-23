@@ -27,7 +27,7 @@ namespace GestorTarefas.Controllers
                 c.Id,
                 c.Texto,
                 c.DataCriacao,
-                Usuario = c.Usuario.Nome
+                Usuario = c.Usuario!.Nome
             })
             .ToListAsync();
 
